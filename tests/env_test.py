@@ -9,6 +9,7 @@ import or_gym
 from or_gym.version import ENV_LIST
 import traceback
 
+
 def pytest_generate_tests(metafunc):
     idlist = []
     argvalues = []
@@ -18,6 +19,7 @@ def pytest_generate_tests(metafunc):
         argnames = [x[0] for x in items]
         argvalues.append([x[1] for x in items])
     metafunc.parametrize(argnames, argvalues, ids=idlist, scope="class")
+
 
 class TestEnv:
     scenarios = [(i, {'config': {'env_name': i}}) for i in ENV_LIST]
